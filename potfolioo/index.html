@@ -18,8 +18,11 @@
         }
         
         /* --- General Reset --- */
-        html { scroll-behavior: smooth; }
-        * { box-sizing: border-box; } /* crucial for responsive padding */
+        html { scroll-behavior: smooth; cursor: none; /* Optional: Hide default cursor for immersion */ }
+        * { box-sizing: border-box; cursor: none; /* Apply to all elements */ }
+
+        /* If you prefer to keep the normal arrow and just have a glow behind it, 
+           remove "cursor: none" from the two lines above. */
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +37,25 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; padding: 0; }
         img { display: block; max-width: 100%; }
+
+        /* --- GLOWING CURSOR STYLES --- */
+        #cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px; /* Size of the core dot */
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            /* This box-shadow creates the glow effect */
+            box-shadow: 0 0 25px 10px rgba(255, 0, 0, 0.6); 
+            pointer-events: none; /* Lets you click through the glow */
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            opacity: 0; /* Hidden until mouse moves */
+            transition: opacity 0.3s ease, transform 0.05s linear;
+            mix-blend-mode: screen; /* Makes it blend nicely with text */
+        }
 
         /* --- Navigation --- */
         nav {
@@ -155,7 +177,7 @@
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
+            cursor: none; /* Keep cursor consistent */
             border: none;
         }
         .btn:hover { background: #fff; color: #000; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,255,255,0.3); }
@@ -252,6 +274,7 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            cursor: none; /* Keep cursor consistent */
         }
         .social-card i { font-size: 2.5rem; margin-bottom: 15px; transition: transform 0.3s; }
         .social-card span { font-size: 1.1rem; font-weight: 600; }
@@ -268,12 +291,15 @@
         footer { text-align: center; padding: 40px; background: #050505; color: #555; margin-top: 50px; border-top: 1px solid #222; }
 
         /* =========================================
-           📱 MOBILE RESPONSIVE MEDIA QUERIES 
-           ========================================= */
+            📱 MOBILE RESPONSIVE MEDIA QUERIES 
+            ========================================= */
         
         @media (max-width: 992px) {
             section { padding: 60px 5%; }
             .about-grid { gap: 40px; }
+            /* Restore normal cursor on touch devices */
+            html, * { cursor: auto; }
+            #cursor-glow { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -322,6 +348,8 @@
     </style>
 </head>
 <body>
+
+    <div id="cursor-glow"></div>
 
     <nav>
         <div class="logo">Thejas Nirmal</div>
@@ -433,7 +461,7 @@
             <div class="project-card">
                 <div>
                     <h3>🤝 TaskConnect (Not Completed)</h3>
-                    <p>Web platform for task management.</p>
+                    <p>It is a website for doing task and earning small small money.</p>
                 </div>
                 <a href="https://github.com/TN13Gamer" target="_blank" class="project-link">View Project &rarr;</a>
             </div>
@@ -469,6 +497,20 @@
     </footer>
 
     <script>
+        // --- 0. CUSTOM CURSOR LOGIC ---
+        const cursorGlow = document.getElementById('cursor-glow');
+
+        document.addEventListener('mousemove', (e) => {
+            // Update the position of the glow element
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+            cursorGlow.style.opacity = '1'; // Show it when moving
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorGlow.style.opacity = '0'; // Hide when leaving window
+        });
+
         // --- 1. MATRIX RAIN EFFECT (RED) ---
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
