@@ -4,7 +4,12 @@ import { useState, useEffect } from 'react'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" },
+    willChange: "opacity, transform"
+  }
 }
 
 const TypewriterText = ({ text, delay = 0, className = "", keepCursor = false }) => {
@@ -64,7 +69,6 @@ export default function Overlay() {
           initial="hidden" animate="visible" variants={fadeUp}
         >
           <div className="hero-content">
-            <p style={{ color: 'var(--accent-primary)', fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: '1.2rem', marginBottom: '10px' }}>Thejas Nirmal</p>
             <h1 className="main-title">
               <TypewriterText text="Hi, I'm" delay={0.5} /><br/>
               <TypewriterText text="Thejas Nirmal" delay={1.5} keepCursor={true} />
@@ -74,6 +78,7 @@ export default function Overlay() {
               animate={{ opacity: 1 }} 
               transition={{ delay: 2.5, duration: 1 }}
               className="hero-description"
+              style={{ willChange: "opacity" }}
             >
               Developer | Hardware Enthusiast | F1 & Tech Explorer
             </motion.p>
@@ -82,6 +87,7 @@ export default function Overlay() {
               animate={{ opacity: 1 }} 
               transition={{ delay: 2.8, duration: 1 }}
               className="subtitle"
+              style={{ willChange: "opacity" }}
             >
               CSE student at BMSIT&M bridging the gap between clean code and physical hardware.
             </motion.p>
@@ -90,6 +96,7 @@ export default function Overlay() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ delay: 3, duration: 0.5 }}
               className="hero-buttons"
+              style={{ willChange: "opacity, transform" }}
             >
               <a href="#contact" className="btn-primary">Let's Connect <ChevronRight size={18} style={{marginLeft:'5px'}}/></a>
               <a href="/resume.pdf" download className="btn-outline">Download Resume</a>
@@ -101,6 +108,7 @@ export default function Overlay() {
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8, delay: 0.5 }}
+            style={{ willChange: "opacity, transform" }}
           >
             <img 
               src="/tn-logo.png" 
@@ -113,12 +121,12 @@ export default function Overlay() {
 
       {/* About Section */}
       <section id="about" className="section">
-        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
           <h2>About Me</h2>
         </motion.div>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
-          <motion.div className="glass-panel" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+          <motion.div className="glass-panel" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', marginBottom: '20px', color: '#fff' }}>My Profile</h3>
             <p style={{ color: 'var(--text-muted)' }}>
               I am a Computer Science Engineering student currently in my 4th semester at BMSIT, focused on building functional, user-centric web applications and IoT solutions. I bridge the gap between software development and hardware integration.
@@ -133,7 +141,7 @@ export default function Overlay() {
             </ul>
           </motion.div>
 
-          <motion.div className="glass-panel" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+          <motion.div className="glass-panel" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', marginBottom: '30px', color: '#fff' }}>Education</h3>
             
             <div className="edu-block">
@@ -174,10 +182,10 @@ export default function Overlay() {
 
       {/* Technical Arsenal (Skills) */}
       <section id="skills" className="section">
-        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
           <h2>Technical Arsenal</h2>
         </motion.div>
-        <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+        <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
           {['C / C++', 'Python', 'OOPs', 'Data Structures', 'VHDL', 'Operating Systems', 'DBMS', 'MySQL', 'Arduino & IoT', 'Firebase', 'Content Creator', 'Video Editing'].map((skill) => (
             <div key={skill} className="skill-badge">{skill}</div>
           ))}
@@ -186,29 +194,29 @@ export default function Overlay() {
 
       {/* Projects */}
       <section id="projects" className="section">
-        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
           <h2>Featured Projects</h2>
         </motion.div>
         <div className="grid-container">
-          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🏨 Thayappura Booking</h3>
             <p>Full-stack resort booking application with an admin dashboard and Firebase integration.</p>
             <a href="https://thayappura.live/" target="_blank" rel="noreferrer" className="project-link">Live Site <ExternalLink size={16}/></a>
           </motion.div>
 
-          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🚘 Anti-Sleep Alarm System</h3>
             <p>Safety device for drivers using eye-blink detection sensors and Arduino.</p>
             <span style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 500 }}>Hardware / C++</span>
           </motion.div>
 
-          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🏎️ F1 Watch Party</h3>
             <p>Streaming community website for Formula 1 enthusiasts.</p>
             <a href="https://github.com/TN13Gamer/f1watchparty-web" target="_blank" rel="noreferrer" className="project-link">View Code <ExternalLink size={16}/></a>
           </motion.div>
 
-          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
+          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🤝 TaskConnect(Not Completed)</h3>
             <p>A platform designed for micro-tasking and freelance gig opportunities.</p>
             <a href="https://taskk-liard.vercel.app/" target="_blank" rel="noreferrer" className="project-link">View Project <ExternalLink size={16}/></a>
@@ -217,21 +225,41 @@ export default function Overlay() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section" style={{ textAlign: 'center', alignItems: 'center' }}>
-        <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-          <h2>Get In Touch</h2>
-        </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} style={{ width: '100%' }}>
-          <div className="footer-links">
-            <a href="mailto:nirmaltheju123@gmail.com"><Mail size={18} style={{marginRight: '8px', verticalAlign: 'middle'}}/> Email Me</a>
-            <a href="https://linkedin.com/in/thejas-nirmal-43418032a/" target="_blank" rel="noreferrer"><Linkedin size={18} style={{marginRight: '8px', verticalAlign: 'middle'}}/> LinkedIn</a>
-            <a href="https://github.com/TN13Gamer" target="_blank" rel="noreferrer"><Github size={18} style={{marginRight: '8px', verticalAlign: 'middle'}}/> GitHub</a>
-            <a href="https://instagram.com/___the_cockpit_lover___/" target="_blank" rel="noreferrer"><Instagram size={18} style={{marginRight: '8px', verticalAlign: 'middle'}}/> Instagram</a>
+      <section id="contact" className="section" style={{ alignItems: 'center' }}>
+        <motion.div className="contact-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
+          <div className="contact-header">
+            <h2>Get In Touch</h2>
           </div>
-          <footer className="footer">
-            <p>© 2026 Thejas Nirmal. Engineered with precision. Designed with passion.</p>
-          </footer>
+          
+          <div className="social-flex">
+            <a href="mailto:nirmaltheju123@gmail.com" className="social-btn email-btn">
+              <Mail size={24} />
+              <span>Email Me</span>
+            </a>
+            <a href="https://linkedin.com/in/thejas-nirmal-43418032a/" target="_blank" rel="noreferrer" className="social-btn linkedin-btn">
+              <Linkedin size={24} />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/TN13Gamer" target="_blank" rel="noreferrer" className="social-btn github-btn">
+              <Github size={24} />
+              <span>GitHub</span>
+            </a>
+            <a href="https://instagram.com/___the_cockpit_lover___/" target="_blank" rel="noreferrer" className="social-btn insta-btn">
+              <Instagram size={24} />
+              <span>Instagram</span>
+            </a>
+          </div>
         </motion.div>
+
+        <motion.footer 
+          className="footer"
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }} 
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          <p>© 2026 Thejas Nirmal. Engineered with precision. Designed with passion.</p>
+        </motion.footer>
       </section>
       
       <style dangerouslySetInnerHTML={{__html: `

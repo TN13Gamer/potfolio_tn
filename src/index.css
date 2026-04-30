@@ -143,6 +143,7 @@ body {
   padding: 40px; 
   border-radius: 16px; 
   backdrop-filter: blur(12px); 
+  will-change: transform, opacity;
 }
 
 /* Skills/Arsenal */
@@ -156,6 +157,7 @@ body {
   font-family: var(--font-body);
   font-weight: 500;
   transition: all 0.2s;
+  will-change: transform;
 }
 .skill-badge:hover { 
   background: rgba(255,255,255,0.1); 
@@ -180,6 +182,7 @@ body {
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
+  will-change: transform, border-color;
 }
 .project-card:hover { 
   border-color: var(--border-hover); 
@@ -253,26 +256,82 @@ body {
   color: var(--accent-primary);
 }
 
-/* Footer Links */
-.footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  transition: 0.2s;
-  padding: 8px 16px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-}
-.footer-links a:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+/* Catchy Contact Section */
+.contact-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 24px;
+  padding: 60px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  will-change: transform, opacity;
 }
 
-.footer { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 20px; }
+.contact-header {
+  text-align: center;
+}
+
+.contact-header h2 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+
+.social-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.social-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.social-btn:hover svg {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Specific Brand Hover Colors */
+.email-btn:hover { border-color: #ea4335; box-shadow: 0 10px 30px rgba(234, 67, 53, 0.2); color: #ea4335; }
+.linkedin-btn:hover { border-color: #0077b5; box-shadow: 0 10px 30px rgba(0, 119, 181, 0.2); color: #0077b5; }
+.github-btn:hover { border-color: #ffffff; box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15); }
+.insta-btn:hover { border-color: #e1306c; box-shadow: 0 10px 30px rgba(225, 48, 108, 0.2); color: #e1306c; }
+
+.footer { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 50px; }
 
 /* Hero Section Specifics */
 .hero-wrapper {
