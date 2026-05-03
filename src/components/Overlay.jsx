@@ -49,11 +49,44 @@ const TypewriterText = ({ text, delay = 0, className = "", keepCursor = false })
 }
 
 export default function Overlay() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div className="scroll-container">
       {/* Navbar */}
       <nav className="navbar">
-        <div className="logo">Thejas Nirmal</div>
+        <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
+          <span>T</span>
+          <span 
+            style={{ 
+              display: 'inline-flex', 
+              overflow: 'hidden', 
+              transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              maxWidth: isScrolled ? '0px' : '120px',
+              opacity: isScrolled ? 0 : 1,
+              whiteSpace: 'pre'
+            }}
+          >hejas </span>
+          <span>N</span>
+          <span 
+            style={{ 
+              display: 'inline-flex', 
+              overflow: 'hidden', 
+              transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              maxWidth: isScrolled ? '0px' : '120px',
+              opacity: isScrolled ? 0 : 1,
+              whiteSpace: 'pre'
+            }}
+          >irmal</span>
+        </div>
         <div className="nav-links">
           <a href="#about" className="nav-link">About</a>
           <a href="#skills" className="nav-link">Skills</a>
@@ -134,10 +167,12 @@ export default function Overlay() {
             
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', margin: '30px 0 20px 0', color: '#fff' }}>What I Like to Do</h3>
             <ul style={{ listStyle: 'none', color: 'var(--text-muted)' }}>
-              <li style={{ marginBottom: '10px' }}>📸 Photography, Video Editing & YouTube</li>
-              <li style={{ marginBottom: '10px' }}>🏎️ Formula 1 & JDM Car Culture</li>
-              <li style={{ marginBottom: '10px' }}>🎮 Valorant & Tech Exploration</li>
-              <li style={{ marginBottom: '10px' }}>🤖 Building Electronics & IoT Projects</li>
+              <li style={{ marginBottom: '10px' }}>📸 Creating Cinematic Videos, Photography & Content Creation</li>
+              <li style={{ marginBottom: '10px' }}>💻 Coding, Cybersecurity & Exploring New Tech</li>
+              <li style={{ marginBottom: '10px' }}>🏎️ JDM Cars, Supercars & Formula 1 Passion</li>
+              <li style={{ marginBottom: '10px' }}>🎮 Gaming, UI/UX Exploration & Building Cool Projects</li>
+              <li style={{ marginBottom: '10px' }}>🤖 Developing IoT, Arduino & Smart Automation Systems</li>
+              <li style={{ marginBottom: '10px' }}>🚀 Building Startups, Brands & Digital Products</li>
             </ul>
           </motion.div>
 
@@ -185,11 +220,106 @@ export default function Overlay() {
         <motion.div className="section-header" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
           <h2>Technical Arsenal</h2>
         </motion.div>
-        <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
-          {['C / C++', 'Python', 'OOPs', 'Data Structures', 'VHDL', 'Operating Systems', 'DBMS', 'MySQL', 'Arduino & IoT', 'Firebase', 'Content Creator', 'Video Editing'].map((skill) => (
-            <div key={skill} className="skill-badge">{skill}</div>
+        
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '100%' }}>
+          {[
+            {
+              category: "💻 Programming & Development",
+              skills: [
+                { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+                { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+                { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+                { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+                { name: 'C / Embedded C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg' },
+                { name: 'ARM Assembly (ALP)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg' }
+              ]
+            },
+            {
+              category: "⚛️ Frontend Stack",
+              skills: [
+                { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+                { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' }
+              ]
+            },
+            {
+              category: "🔥 Backend & Cloud",
+              skills: [
+                { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg' },
+                { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+                { name: 'REST APIs', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg' },
+                { name: 'Cloudflare', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg' },
+                { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg' }
+              ]
+            },
+            {
+              category: "🤖 AI / Modern Tech",
+              skills: [
+                { name: 'AI Tools & Prompt Eng', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kaggle/kaggle-original.svg' },
+                { name: 'IoT Development', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/networkx/networkx-original.svg' },
+                { name: 'Arduino', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg' },
+                { name: 'Sensor Integration', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/embeddedc/embeddedc-original.svg' },
+                { name: 'Embedded Systems', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg' }
+              ]
+            },
+            {
+              category: "🗄️ Database & Tools",
+              skills: [
+                { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+                { name: 'Git & GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
+                { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' }
+              ]
+            },
+            {
+              category: "🎨 Creative Arsenal",
+              skills: [
+                { name: 'Video Editing', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-original.svg' },
+                { name: 'Photography', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg' },
+                { name: 'UI/UX Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
+                { name: '3D Web Experiences', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg' },
+                { name: 'Motion Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg' }
+              ]
+            },
+            {
+              category: "🚀 Areas You’re Building In",
+              skills: [
+                { name: 'Full Stack Development', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+                { name: 'IoT & Smart Automation', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg' },
+                { name: 'AI-powered Apps', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+                { name: 'Portfolio & Brand Building', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg' },
+                { name: 'Startup/Product Dev', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg' }
+              ]
+            }
+          ].map((section, idx) => (
+            <motion.div key={section.category} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', marginBottom: '15px', color: '#fff', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>
+                {section.category}
+              </h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
+                {section.skills.map((skill, index) => (
+                  <motion.div 
+                    key={skill.name} 
+                    className="skill-badge"
+                    style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                  >
+                    <img 
+                      src={skill.icon} 
+                      alt={skill.name} 
+                      style={{ width: '20px', height: '20px' }} 
+                      className="skill-icon-anim" 
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                    <span>{skill.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* Projects */}
@@ -207,7 +337,16 @@ export default function Overlay() {
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🚘 Anti-Sleep Alarm System</h3>
             <p>Safety device for drivers using eye-blink detection sensors and Arduino.</p>
-            <span style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 500 }}>Hardware / C++</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 500 }}>Hardware / C++</span>
+              <a href="https://github.com/TN13Gamer/Anti-sleep-prevention-system" target="_blank" rel="noreferrer" className="project-link">View Code <ExternalLink size={16}/></a>
+            </div>
+          </motion.div>
+
+          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
+            <h3>📦 Little Box Stories</h3>
+            <p>A beautiful web platform to share and explore creative stories and adventures.</p>
+            <a href="https://littleboxstories.vercel.app/" target="_blank" rel="noreferrer" className="project-link">Live Site <ExternalLink size={16}/></a>
           </motion.div>
 
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
@@ -217,7 +356,7 @@ export default function Overlay() {
           </motion.div>
 
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
-            <h3>🤝 TaskConnect(Not Completed)</h3>
+            <h3>🤝 TaskConnect (Not Completed)</h3>
             <p>A platform designed for micro-tasking and freelance gig opportunities.</p>
             <a href="https://taskk-liard.vercel.app/" target="_blank" rel="noreferrer" className="project-link">View Project <ExternalLink size={16}/></a>
           </motion.div>
