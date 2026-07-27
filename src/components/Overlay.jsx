@@ -162,7 +162,7 @@ export default function Overlay() {
           <motion.div className="glass-panel" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', marginBottom: '20px', color: '#fff' }}>My Profile</h3>
             <p style={{ color: 'var(--text-muted)' }}>
-              I am a Computer Science Engineering student currently in my 4th semester at BMSIT, focused on building functional, user-centric web applications and IoT solutions. I bridge the gap between software development and hardware integration.
+              I’m a third-year Computer Science Engineering student at BMSIT, passionate about turning ideas into practical digital experiences. My work spans full-stack web development, IoT, and smart automation, combining software with hardware to build functional, intuitive, and real-world solutions.
             </p>
             
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', margin: '30px 0 20px 0', color: '#fff' }}>What I Like to Do</h3>
@@ -186,7 +186,7 @@ export default function Overlay() {
               <div className="edu-details">
                 <h3>B.E. Computer Science Engineering</h3>
                 <h4>BMS Institute of Technology and Management</h4>
-                <p>Currently in 4th Semester</p>
+                <p>Currently in 3rd Year</p>
               </div>
             </div>
 
