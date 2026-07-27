@@ -197,7 +197,7 @@ export default function Overlay() {
               <div className="edu-details">
                 <h3>Class 12th (CBSE)</h3>
                 <h4>Kendriya Vidyalaya Keltron Nagar</h4>
-                <p>Score: 86.2% | Computer Science Stream</p>
+                <p>Score: 86.6% | Computer Science Stream</p>
               </div>
             </div>
 
@@ -208,7 +208,7 @@ export default function Overlay() {
               <div className="edu-details">
                 <h3>Class 10th (CBSE)</h3>
                 <h4>Kendriya Vidyalaya Keltron Nagar</h4>
-                <p>Score: 85.6%</p>
+                <p>Score: 85.2%</p>
               </div>
             </div>
           </motion.div>
@@ -371,11 +371,11 @@ export default function Overlay() {
           </div>
           
           <div className="social-flex">
-            <a href="mailto:nirmaltheju123@gmail.com" className="social-btn email-btn">
+            <a href="mailto:nirmaltheju@gmail.com" className="social-btn email-btn">
               <Mail size={24} />
               <span>Email Me</span>
             </a>
-            <a href="https://linkedin.com/in/thejas-nirmal-43418032a/" target="_blank" rel="noreferrer" className="social-btn linkedin-btn">
+            <a href="https://www.linkedin.com/in/thejasnirmal/" target="_blank" rel="noreferrer" className="social-btn linkedin-btn">
               <Linkedin size={24} />
               <span>LinkedIn</span>
             </a>
@@ -383,7 +383,7 @@ export default function Overlay() {
               <Github size={24} />
               <span>GitHub</span>
             </a>
-            <a href="https://instagram.com/___the_cockpit_lover___/" target="_blank" rel="noreferrer" className="social-btn insta-btn">
+            <a href="https://www.instagram.com/_.thejas_nirmal__/" target="_blank" rel="noreferrer" className="social-btn insta-btn">
               <Instagram size={24} />
               <span>Instagram</span>
             </a>
@@ -397,7 +397,7 @@ export default function Overlay() {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <p>© 2026 Thejas Nirmal. Engineered with precision. Designed with passion.</p>
+          <p>© 2026 Thejas Nirmal.Engineered to inspire.Built to endure.</p>
         </motion.footer>
       </section>
       
