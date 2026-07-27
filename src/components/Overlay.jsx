@@ -113,7 +113,7 @@ export default function Overlay() {
               className="hero-description"
               style={{ willChange: "opacity" }}
             >
-              Developer | Hardware Enthusiast | F1 & Tech Explorer
+              Developer • Entrepreneur • Tech & Hardware Enthusiast
             </motion.p>
             <motion.p 
               initial={{ opacity: 0 }} 
@@ -122,7 +122,7 @@ export default function Overlay() {
               className="subtitle"
               style={{ willChange: "opacity" }}
             >
-              CSE student at BMSIT&M bridging the gap between clean code and physical hardware.
+              CSE Student at BMSIT&M | Developer, Tech Builder & Entrepreneur Exploring Software, AI, Hardware and Automation.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
