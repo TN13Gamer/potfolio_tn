@@ -333,7 +333,7 @@ export default function Overlay() {
             <p>A full-stack resort booking and management platform featuring seamless online reservations, a powerful admin dashboard, real-time booking and guest management, secure authentication, and Firebase integration, designed to simplify resort operations while delivering a smooth and responsive user experience.</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 500 }}>React / TypeScript / Vite</span>
-              <a href="https://thayappura.live/" target="_blank" rel="noreferrer" className="project-link">Live Site <ExternalLink size={16}/></a>
+              <a href="https://thayappura.live/" target="_blank" rel="noreferrer" className="project-link">View Website <ExternalLink size={16}/></a>
             </div>
           </motion.div>
 
@@ -351,7 +351,7 @@ export default function Overlay() {
             <p>A personalized gifting platform designed to turn special moments into meaningful experiences through thoughtfully curated and customized gift boxes for every occasion.</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 500 }}>React / TypeScript / Next.js</span>
-               <a href="https://littleboxstories.vercel.app/" target="_blank" rel="noreferrer" className="project-link">Live Site <ExternalLink size={16}/></a>
+               <a href="https://littleboxstories.vercel.app/" target="_blank" rel="noreferrer" className="project-link">View Website <ExternalLink size={16}/></a>
             </div>
           </motion.div>
 
