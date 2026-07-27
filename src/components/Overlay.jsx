@@ -330,13 +330,13 @@ export default function Overlay() {
         <div className="grid-container">
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🏨 Thayappura Booking</h3>
-            <p>Full-stack resort booking application with an admin dashboard and Firebase integration.</p>
+            <p>A full-stack resort booking and management platform featuring seamless online reservations, a powerful admin dashboard, real-time booking and guest management, secure authentication, and Firebase integration, designed to simplify resort operations while delivering a smooth and responsive user experience.</p>
             <a href="https://thayappura.live/" target="_blank" rel="noreferrer" className="project-link">Live Site <ExternalLink size={16}/></a>
           </motion.div>
 
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🚘 Anti-Sleep Alarm System</h3>
-            <p>Safety device for drivers using eye-blink detection sensors and Arduino.</p>
+            <p>An Arduino-based driver safety system that uses eye-blink detection sensors to monitor signs of drowsiness and trigger an instant alert, helping reduce the risk of accidents caused by driver fatigue.</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: 'var(--accent-primary)', fontSize: '0.9rem', fontWeight: 500 }}>Hardware / C++</span>
               <a href="https://github.com/TN13Gamer/Anti-sleep-prevention-system" target="_blank" rel="noreferrer" className="project-link">View Code <ExternalLink size={16}/></a>
@@ -345,21 +345,16 @@ export default function Overlay() {
 
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>📦 Little Box Stories</h3>
-            <p>A beautiful web platform to share and explore creative stories and adventures.</p>
+            <p>A personalized gifting platform designed to turn special moments into meaningful experiences through thoughtfully curated and customized gift boxes for every occasion.</p>
             <a href="https://littleboxstories.vercel.app/" target="_blank" rel="noreferrer" className="project-link">Live Site <ExternalLink size={16}/></a>
           </motion.div>
 
           <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
             <h3>🏎️ F1 Watch Party</h3>
-            <p>Streaming community website for Formula 1 enthusiasts.</p>
+            <p>A dedicated Formula 1 streaming and watch-party platform designed for fans to experience live race weekends, follow the action, and enjoy F1 together through an engaging digital experience.</p>
             <a href="https://github.com/TN13Gamer/f1watchparty-web" target="_blank" rel="noreferrer" className="project-link">View Code <ExternalLink size={16}/></a>
           </motion.div>
 
-          <motion.div className="project-card" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}>
-            <h3>🤝 TaskConnect (Not Completed)</h3>
-            <p>A platform designed for micro-tasking and freelance gig opportunities.</p>
-            <a href="https://taskk-liard.vercel.app/" target="_blank" rel="noreferrer" className="project-link">View Project <ExternalLink size={16}/></a>
-          </motion.div>
         </div>
       </section>
 
